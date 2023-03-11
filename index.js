@@ -32,15 +32,14 @@ app.get("/api/users", (req, res) => {
   }).catch(err => console.log(err))
 })
 
-// // Post new user
-// app.post('/api/users', (req, res) => {
-//   const newUser = new User({username: req.body.username})
-//   newUser.save().then((doc) => {
-//     res.json({_id: doc._id, username: doc.username})
-//   }).catch((err) => {
-//     console.error(err)
-//   })
-// })
+// /api/users post request
+app.post("/api/users", (req, res) => {
+
+  let newUser = new User({ username: req.body.username });
+  newUser.save().then((doc) => {
+    res.json({ username: doc.username, _id: doc.id });
+  }).catch((err) => console.log(err));
+})
 
 
 app.use(cors())
