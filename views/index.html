@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1>Exercise tracker</h1>
-      <form action="/api/users" method="post">
+      <form action="http://localhost:3000/api/users" method="post">
         <h3>Create a New User</h3>
         <p><code>POST /api/users</code></p>
         <input id="uname" type="text" name="username" placeholder="username" />
@@ -33,6 +33,27 @@
       <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
     </div>
     <script>
+      // const userForm = document.querySelector("form");
+
+      // userForm.addEventListener("submit", () => {
+
+      //   fetch("http://localhost:3000/api/users", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json"
+      //     },
+      //     body: JSON.stringify({
+      //       username: document.getElementById("uname").value
+      //     })
+      //   })
+      //     .then(res => res.json())
+      //     .then(data => {
+      //       console.log(data);
+      //       // document.getElementById("uid").value = data._id;
+      //     });
+      // });
+
+
       const exerciseForm = document.getElementById("exercise-form");
 
       exerciseForm.addEventListener("submit", () => {
