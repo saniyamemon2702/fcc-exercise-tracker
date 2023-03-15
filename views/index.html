@@ -39,7 +39,7 @@
       const username=document.getElementById('uname');
 
       fetch("/api/users",{
-        method:POST,
+        method:"POST",
         header:{
           "Content-Type":"application/json"
         },
@@ -49,11 +49,28 @@
 
       const exerciseForm = document.getElementById("exercise-form");
 
-      exerciseForm.addEventListener("submit", () => {
+      exerciseForm.addEventListener("submit", (e) => {
+        // e.preventDefault();
         const userId = document.getElementById("uid").value;
+        const description=document.getElementById("desc").value; //descriptionj
+        const duration=parseInt(document.getElementById("dur").value); //duration in number
+        const date=document.getElementById("date").value// date
         exerciseForm.action = `/api/users/${userId}/exercises`;
 
         exerciseForm.submit();
+console.log(userId,description,duration,date)
+        fetch("/api/users/:_id/exercises",{
+          method:"POST",
+          header:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({
+             _id:userId,
+             date:date,
+             duration:duration,
+             description:description
+           })
+        })
       });
     </script>
   </body>
