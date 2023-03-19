@@ -35,7 +35,7 @@ const User = mongoose.model('User', userSchema)
 app.get("/api/users", (req, res) => {
   User.find().then((docs) => {
     const users = docs.map((doc) => {
-      return { _id: doc._id, username: doc.username, __v: doc.__v }
+      return { "_id": doc._id, "username": doc.username, "__v": doc.__v }
     })
     res.send(users)
   }).catch(err => console.log(err))

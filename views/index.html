@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1>Exercise tracker</h1>
-      <form action="http://localhost:3000/api/users" method="post" id="form">
+      <form action="/api/users" method="post" id="form">
         <h3>Create a New User</h3>
         <p><code>POST /api/users</code></p>
         <input id="uname" type="text" name="username" placeholder="username" />
@@ -38,12 +38,14 @@
       const userForm=document.getElementById("form")
       const username=document.getElementById('uname');
 
+     
+
       fetch("/api/users",{
         method:"POST",
         header:{
           "Content-Type":"application/json"
         },
-        body:JSON.stringify({username:username.value})
+        body:JSON.stringify({username:username.value||"anonymous"})
       })
 
 
